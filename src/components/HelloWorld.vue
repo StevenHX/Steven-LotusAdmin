@@ -59,6 +59,7 @@ const animateCSS = (element, animation, prefix = "animate__") =>
     <code>components/HelloWorld.vue</code> to test hot module replacement.
   </p>
 
+  <svg-icon icon-class="user" />
   <button @click="show">进入</button>
   <button @click="hide">离开</button>
 </template>

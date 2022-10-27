@@ -15,6 +15,7 @@ import  'animate.css'
 
 import directive from './directive'
 
+import 'virtual:svg-icons-register'
 import SvgIcon from '@/components/SvgIcon'
 import elementIcons from '@/components/SvgIcon/svgicon'
 
@@ -42,9 +43,8 @@ directive(app)
 //设置svg
 app.use(elementIcons)
 
-app.component('svg-icon', SvgIcon)
-
 // 全局组件挂载
+app.component('svg-icon', SvgIcon)
 app.component('Pagination', Pagination)
 
 app.mount('#app')
