@@ -88,20 +88,20 @@ export const constantRoutes = [
 
 // 动态路由，基于用户权限动态去加载
 export const dynamicRoutes = [
-//   {
-//     path: '/system/user-auth',
-//     component: Layout,
-//     hidden: true,
-//     permissions: ['system:user:edit'],
-//     children: [
-//       {
-//         path: 'role/:userId(\\d+)',
-//         component: () => import('@/views/system/user/authRole'),
-//         name: 'AuthRole',
-//         meta: { title: '分配角色', activeMenu: '/system/user' }
-//       }
-//     ]
-//   }
+  {
+    path: '/system/dict-data',
+    component: Layout,
+    hidden: true,
+    permissions: ['system:dict:list'],
+    children: [
+      {
+        path: 'index/:dictId(\\d+)',
+        component: () => import('@/views/system/dict/data'),
+        name: 'Data',
+        meta: { title: '字典数据', activeMenu: '/system/dict' }
+      }
+    ]
+  },
 ]
 
 const router = createRouter({

@@ -27,7 +27,11 @@ import elementIcons from '@/components/SvgIcon/svgicon'
 
 // 分页组件
 import Pagination from '@/components/Pagination'
+// 字典标签组件
+import DictTag from '@/components/DictTag'
+import RightToolbar from '@/components/RightToolbar'
 
+import { useDict } from '@/utils/common'
 
 const app = createApp(App);
 
@@ -35,12 +39,6 @@ const app = createApp(App);
 app.use(store)
 // 设置router
 app.use(router)
-
-// 设置element-plus
-app.use(ElementPlus, {
-    locale: locale,
-    size: 'default'
-})
 
 // 设置animate-css
 app.use(animated)
@@ -54,5 +52,15 @@ app.use(elementIcons)
 // 全局组件挂载
 app.component('svg-icon', SvgIcon)
 app.component('Pagination', Pagination)
+app.component('DictTag', DictTag)
+app.component('RightToolbar', RightToolbar)
+// 全局方法挂载
+app.config.globalProperties.useDict = useDict
+
+// 设置element-plus
+app.use(ElementPlus, {
+    locale: locale,
+    size: 'default'
+})
 
 app.mount('#app')

@@ -1,12 +1,8 @@
 <script setup>
 import { ref, vShow } from "vue";
-import { login, menu } from "@/api"
 defineProps({
   msg: String,
 });
-
-console.log(login.login)
-console.log(menu.getRouters)
 
 const count = ref(0);
 

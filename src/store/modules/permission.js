@@ -1,6 +1,6 @@
 import auth from '@/utils/role-permi'
 import router, { constantRoutes, dynamicRoutes } from '@/router'
-import { menu } from '@/api'
+import { getRouters } from '@/api/menu'
 import Layout from '@/layout/index'
 import ParentView from '@/components/ParentView'
 
@@ -34,7 +34,7 @@ const usePermissionStore = defineStore(
       generateRoutes(roles) {
         return new Promise(resolve => {
           // 向后端请求路由数据
-          menu.getRouters().then(res => {
+          getRouters().then(res => {
             const sdata = JSON.parse(JSON.stringify(res.data))
             const rdata = JSON.parse(JSON.stringify(res.data))
             const defaultData = JSON.parse(JSON.stringify(res.data))

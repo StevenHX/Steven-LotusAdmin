@@ -65,7 +65,7 @@
 </template>
 
 <script setup>
-import { login } from "@/api";
+import { getCodeImg } from "@/api/login";
 import Cookies from "js-cookie";
 import { encrypt, decrypt } from "@/utils/jsencrypt";
 import useUserStore from '@/store/modules/user'
@@ -126,7 +126,7 @@ function handleLogin() {
 }
 
 function getCode() {
-  login.getCodeImg().then(res => {
+  getCodeImg().then(res => {
     captchaEnabled.value = res.captchaEnabled === undefined ? true : res.captchaEnabled;
     if (captchaEnabled.value) {
       codeUrl.value = "data:image/gif;base64," + res.img;

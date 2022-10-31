@@ -1,4 +1,4 @@
-import { login } from '@/api'
+import { login, getInfo, logout } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import defAva from '@/assets/icons/Lotus.png'
 
@@ -20,7 +20,7 @@ const useUserStore = defineStore(
         const code = userInfo.code
         const uuid = userInfo.uuid
         return new Promise((resolve, reject) => {
-          login.login(username, password, code, uuid).then(res => {
+          login(username, password, code, uuid).then(res => {
             setToken(res.token)
             this.token = res.token
             resolve()
@@ -32,7 +32,7 @@ const useUserStore = defineStore(
       // 获取用户信息
       getInfo() {
         return new Promise((resolve, reject) => {
-          login.getInfo().then(res => {
+          getInfo().then(res => {
             const user = res.user
             const avatar = (user.avatar == "" || user.avatar == null) ? defAva : import.meta.env.VITE_APP_BASE_API + user.avatar;
 
@@ -53,7 +53,7 @@ const useUserStore = defineStore(
       // 退出系统
       logOut() {
         return new Promise((resolve, reject) => {
-          login.logout(this.token).then(() => {
+          logout(this.token).then(() => {
             this.token = ''
             this.roles = []
             this.permissions = []
