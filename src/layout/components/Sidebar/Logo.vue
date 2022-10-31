@@ -25,7 +25,7 @@ defineProps({
 })
 
 const title = ref('后台管理系统');
-const sideTheme = 'light';
+const sideTheme = 'theme-light';
 </script>
 
 <style lang="scss" scoped>

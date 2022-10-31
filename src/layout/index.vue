@@ -18,6 +18,12 @@ import { AppMain, Navbar, TagsView } from './components'
 
 const sidebar = computed(() => useAppStore().sidebar);
 
+const classObj = computed(() => ({
+  hideSidebar: !sidebar.value.opened,
+  openSidebar: sidebar.value.opened,
+  withoutAnimation: sidebar.value.withoutAnimation
+}))
+
 </script>
 
 <style lang="scss" scoped>

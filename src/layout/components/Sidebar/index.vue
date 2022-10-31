@@ -32,12 +32,11 @@ import usePermissionStore from '@/store/modules/permission'
 
 const route = useRoute();
 const appStore = useAppStore()
-const settingsStore = useSettingsStore()
 const permissionStore = usePermissionStore()
 
 const sidebarRouters =  computed(() => permissionStore.sidebarRouters);
 const showLogo = true;
-const sideTheme = 'light';
+const sideTheme = 'theme-light';
 const theme = '#409EFF'
 const isCollapse = computed(() => !appStore.sidebar.opened);
 

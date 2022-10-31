@@ -1,6 +1,6 @@
 import { login } from '@/api'
 import { getToken, setToken, removeToken } from '@/utils/auth'
-import defAva from '@/assets/icons/Lotus.jpg'
+import defAva from '@/assets/icons/Lotus.png'
 
 const useUserStore = defineStore(
   'user',
