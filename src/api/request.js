@@ -5,6 +5,8 @@ import { getToken } from '@/utils/auth'
 import cache from '@/utils/cache'
 import { tansParams } from '@/utils/common'
 
+import router from "@/router"
+
 const errorCode = {
   '401': '认证失败，无法访问系统资源',
   '403': '当前操作没有权限',
@@ -102,6 +104,12 @@ service.interceptors.response.use(res => {
         message: msg,
         type: 'error'
       })
+      return Promise.reject(new Error(msg))
+    } else if (code == 403) {
+      ElNotification.error({
+        title: msg
+      })
+      router.push({ path: "/403" });
       return Promise.reject(new Error(msg))
     } else if (code !== 200) {
       ElNotification.error({
